@@ -1,70 +1,56 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Task Management Dashboard
 
-## Available Scripts
+A simple task management app built with React and Redux, featuring drag-and-drop functionality and local storage persistence.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Add Tasks: Create new tasks with a title, description, and status.
+- Drag-and-Drop: Reorder tasks and move them between different statuses (e.g., To Do, In Progress, Done).
+- Task Counts: Displays the count of tasks in each category in the header.
+- Local Storage Integration: Saves tasks locally to preserve the state after refreshing the page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Approach
+## Key Concepts
+### 1.State Management:
+Used Redux Toolkit to manage the global state for tasks. The state is structured as an array of tasks, each containing id, title, description, and status.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2.Drag-and-Drop:
 
-### `npm test`
+- Implemented using event handlers (onDragStart,onDragEnd, onDrop, and onDragOver).
+- Tasks can be reordered or moved between categories by updating their index or status in the state.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3.Persistence:
 
-### `npm run build`
+- Used localStorage to save and load tasks on application start.
+Ensured robust error handling when accessing local storage.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Assumptions
+- Tasks have a fixed set of statuses (To Do, In Progress, Done).
+- Each task has a unique id generated with uuid.
+- The app is run in a modern browser that supports localStorage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# How to Run the Project Locally
 
-### `npm run eject`
+### 1.Clone the repository
+```
+git clone https://github.com/Anilkokkul/Task-Management-Dashboard.git
+cd Task-Management-Dashboard
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2.Install Dependencies:
+Run the following command to install required packages
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm install
+```
+### 3.Run the App: Start the development server
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 4.Build the App (Optional): To create a production build:
+```
+npm run build
+```
