@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       <Navbar />
       <AddTask />
-      <div className="grid grid-cols-3 min-h-screen gap-3 lg:px-28 px-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-screen lg:px-28 px-5">
         <TaskList
           title={"To Do"}
           tasks={tasks}

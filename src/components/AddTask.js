@@ -11,36 +11,44 @@ const AddTask = () => {
     status: "todo",
   });
   return (
-    <div>
+    <div className=" my-5">
+      <h1 className="text-center text-xl font-bold mb-3">Add Task</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(addTask({ ...task, id: uuidv4() }));
           setTask({ title: "", description: "", status: "todo" });
         }}
-        className="container mx-auto p-5 flex justify-center gap-4 items-center"
+        className="bg-white shadow-lg rounded-lg p-6 flex items-center gap-4 max-w-xl mx-auto"
       >
         <input
           type="text"
-          value={task.title}
-          onChange={(e) => setTask({ ...task, title: e.target.value })}
+          name="title"
           placeholder="Task title"
+          value={task.title}
+          maxLength={100}
+          minLength={3}
+          onChange={(e) => setTask({ ...task, title: e.target.value })}
+          className="w-1/3 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
           required
-          className="border py-2 px-1 rounded-md focus:border-green-400"
         />
         <input
           type="text"
-          required
-          value={task.description}
-          className="border py-2 px-1 rounded-md focus:border-green-400"
-          onChange={(e) => setTask({ ...task, description: e.target.value })}
+          name="description"
           placeholder="Task description"
+          value={task.description}
+          maxLength={100}
+          minLength={3}
+          onChange={(e) => setTask({ ...task, description: e.target.value })}
+          className="w-1/2 border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          required
         />
-        <input
+        <button
           type="submit"
-          value="Submit"
-          className=" cursor-pointer p-2 rounded-lg shadow-md text-white hover:bg-green-700 bg-green-500"
-        />
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
