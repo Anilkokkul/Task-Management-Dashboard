@@ -10,7 +10,7 @@ function App() {
   const dispatch = useDispatch();
   const onDrop = (status, position) => {
     if (activeCard === null || activeCard === undefined) return;
-    dispatch(updateTaskStatus({ id: activeCard, status }));
+    dispatch(updateTaskStatus({ id: activeCard, status, position }));
   };
 
   return (

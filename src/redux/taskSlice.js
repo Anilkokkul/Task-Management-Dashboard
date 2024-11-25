@@ -28,11 +28,13 @@ const taskSlice = createSlice({
       state.activeCard = null;
     },
     updateTaskStatus(state, action) {
-      const task = state.tasks.find((task) => task.id === action.payload.id);
-      console.log(action.payload);
-      if (task) {
-        task.status = action.payload.status;
-        state.tasks.splice(action.payload.id, 0);
+      const { id, status, position } = action.payload;
+      const currentIndex = state.tasks.findIndex((task) => task.id === id);
+
+      if (currentIndex !== -1) {
+        const [task] = state.tasks.splice(currentIndex, 1);
+        task.status = status;
+        state.tasks.splice(position, 0, task);
       }
     },
   },
