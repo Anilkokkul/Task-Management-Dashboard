@@ -8,6 +8,8 @@ import { updateTaskStatus } from "./redux/taskSlice";
 function App() {
   const { tasks, activeCard } = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
+
+  //function for updating tasks status when a task is active
   const onDrop = (status, position) => {
     if (activeCard === null || activeCard === undefined) return;
     dispatch(updateTaskStatus({ id: activeCard, status, position }));

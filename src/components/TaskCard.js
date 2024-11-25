@@ -6,8 +6,8 @@ const TaskCard = ({ task }) => {
   return (
     <div
       className="p-4 rounded-md  bg-white cursor-grab active:opacity-30 opacity-100 active:border-2 active:border-dashed active:border-black"
-      onDragStart={() => dispatch(onDragStart(task.id))}
-      onDragEnd={() => dispatch(onDragEnd())}
+      onDragStart={() => dispatch(onDragStart(task.id))} //this will set the task as active
+      onDragEnd={() => dispatch(onDragEnd())} //this will set the task as null
       draggable={true}
     >
       <div className="flex justify-between items-center my-1">

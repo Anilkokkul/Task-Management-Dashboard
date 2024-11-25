@@ -19,7 +19,7 @@ const TaskList = ({ title, tasks, status, onDrop }) => {
           task.status === status && (
             <div key={task.id}>
               <TaskCard task={task} />
-              <DropArea onDrop={onDrop} status={status} index={i} />
+              <DropArea onDrop={onDrop} status={status} index={i + 1} />
             </div>
           )
       )}
